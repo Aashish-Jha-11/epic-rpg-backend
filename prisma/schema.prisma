@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String      @id @default(cuid())
+  username  String      @unique
+  email     String      @unique
+  password  String
+  isActive  Boolean     @default(true)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  characters Character[]
+}
+
+model Character {
+  id         String   @id @default(cuid())
+  name       String
+  class      String
+  level      Int      @default(1)
+  experience Int      @default(0)
+  rarity     String   @default("common")
+  
+  healthStat   Int
+  attackStat   Int
+  defenseStat  Int
+  speedStat    Int
+  manaStat     Int
+  
+  skills     String[]
+  isActive   Boolean  @default(true)
+  
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([class])
+  @@index([rarity])
+  @@index([level])
+  @@index([userId])
+}
