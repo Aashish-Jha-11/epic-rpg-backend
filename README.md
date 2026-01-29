@@ -2,8 +2,11 @@
 
 A full-featured CRUD backend API for managing RPG game characters built with TypeScript, Express, and Neon PostgreSQL. Features include character management, battle system, level progression, and JWT authentication.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aashish-Jha-11/epic-rpg-backend)
+
 ## 🚀 Quick Access
 
+- **Live Demo**: [Deployed on Vercel](https://your-app.vercel.app)
 - **Frontend Demo**: `http://localhost:8080`
 - **API Base URL**: `http://localhost:8080/api`
 
@@ -323,30 +326,45 @@ npm run prisma:studio    # Open Prisma Studio GUI
 - **Repository Pattern** - Abstracted data access
 - **Service Pattern** - Business logic separation
 
+## � Deploy to Vercel
+
+### Quick Deploy
+
+1. Click the "Deploy with Vercel" button above
+2. Connect your GitHub repository
+3. Add environment variables:
+   - `DATABASE_URL` - Your Neon PostgreSQL connection string
+   - `JWT_SECRET` - Your secret key
+   - `JWT_EXPIRE` - Token expiration (e.g., 7d)
+4. Deploy!
+
+### Manual Deploy
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Add environment variables in Vercel dashboard
+# Then deploy to production
+vercel --prod
+```
+
+### Important Notes for Vercel Deployment
+
+- Vercel automatically runs `vercel-build` script which generates Prisma Client and applies migrations
+- Make sure your Neon database URL includes `?sslmode=require`
+- Environment variables must be set in Vercel dashboard
+- CORS is enabled for all origins (adjust in production if needed)
+
 ## 📝 License
 
 MIT License
 
 ---
 
-**Built with TypeScript, Express, Prisma, and Neon PostgreSQL
-2. Use the demo interface
-
-### cURL (Command Line)
-```bash
-# Register
-curl -X POST http://localhost:8080/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"test","email":"test@test.com","password":"test123"}'
-
-# Get characters
-curl http://localhost:8080/api/characters
-```
-
-## 👨‍💻 Author
-
-Made with 💪, TypeScript, Neon DB, and Prisma!
-
----
+**Built with TypeScript, Express, Prisma, and Neon PostgreSQL**
 
 **🎮 Happy Coding! Battle karo aur level up karo! ⚔️**
