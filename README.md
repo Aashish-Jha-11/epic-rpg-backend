@@ -6,7 +6,7 @@ A full-featured CRUD backend API for managing RPG game characters built with Typ
 
 ## 🚀 Quick Access
 
-- **Live Demo**: [Deployed on Vercel](https://your-app.vercel.app)
+- **Live Demo**: [Deployed on Vercel]([https://your-app.vercel.app](https://epic-rpg-backend.vercel.app/))
 - **Frontend Demo**: `http://localhost:8080`
 - **API Base URL**: `http://localhost:8080/api`
 
